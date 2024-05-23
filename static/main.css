@@ -1,0 +1,46 @@
+/* .header {
+  position: absolute;
+  display: flex;
+  top: 1em;
+  right: 1em;
+  gap: 5em;
+} */
+.HS_Header {
+  margin-top: 1em;
+}
+a {
+  font-weight: 500;
+  color: #ff5e00;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+.WORDLE_GAME {
+  margin-top: 5em;
+  text-align: center;
+}
+
+/* this section handles highscore-page */
+.HS_section {
+  display: flex;
+  flex-direction: column;
+  padding: 0em;
+}
+.HS_player {
+  flex-direction: column;
+  border: solid black 1px;
+  box-shadow: 1px 1px 5px rgba(60, 190, 169, 0.801);
+  margin-bottom: 1em;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+.name_top {
+  margin-top: 0.5em;
+}
+strong {
+  margin: -0.5em;
+}

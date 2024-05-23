@@ -1,0 +1,36 @@
+<a class="header HS_header" href="/">BACK TO WORDLE</a>
+<div class="WORDLE_GAME">
+  <h1>HIGHSCORE-LISTA</h1>
+  <h3>snabbast spelare först på listan</h3>
+  <div class="HS_container">
+    <ol class="HS_section">
+      {{#each data}}
+        <li class="HS_player">
+          <strong class="name_top">Namn:</strong>
+          {{this.name}}
+          {{! <br /> }}
+          <strong>Total tid:</strong>
+          {{this.timeTaken}}
+          sekunder
+          {{! <br /> }}
+          <strong>Hemligt ord:</strong>
+          {{this.secretWord}}
+          {{! <br /> }}
+          <strong>Vald ordlängd:</strong>
+          {{this.wordLength}}
+          {{! <br /> }}
+          <strong>Tillåta dubletter:</strong>
+          {{this.allowDuplicates}}
+          {{! <br /> }}
+          <strong>Gissningar:</strong>
+          <ul class="center">
+            {{#each this.allTheGuesses}}
+              <li> {{this}}, </li>
+            {{/each}}
+          </ul>
+          {{! <br /> }}
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+</div>
