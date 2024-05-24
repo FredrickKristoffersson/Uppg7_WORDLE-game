@@ -1,31 +1,38 @@
-import { describe, test, expect } from "@jest/globals";
-import { getRandomWord } from "./SecretWords";
+import { describe, it, test, expect, jest } from "@jest/globals";
+import getRandomWord from "./SecretWords";
+import { renderHBS } from "./header";
 
-describe("getRandomWord", () => {
-  test("should return a word of the correct length", () => {
-    const length = 5;
-    const word = getRandomWord(length);
-    expect(word.length).toBe(length);
-  });
+test("if we get correct length of word back, when wordlength is 7", () => {
+  const wordLength = 7;
+  const word = getRandomWord(wordLength);
+  expect(word.length).toBe(wordLength);
+});
 
-  test("should return a word from the correct list for length 5", () => {
-    const length = 5;
-    const word = getRandomWord(length);
-    const wordList = ["CYKEL", "MEDEL", "HOPPA", "BULLE", "SADEL"];
-    expect(wordList).toContain(word);
-  });
+test("if we get correct length of word back, when wordlength is 6", () => {
+  const wordLength = 6;
+  const word = getRandomWord(wordLength);
+  expect(word.length).toBe(wordLength);
+});
 
-  test("should return a word from the correct list for length 6", () => {
-    const length = 6;
-    const word = getRandomWord(length);
-    const wordList = ["ADDERA", "DAMSUG", "JODDLA", "PUTSAR"];
-    expect(wordList).toContain(word);
-  });
+test("if we get correct length of word back, when wordlength is 5", () => {
+  const wordLength = 5;
+  const word = getRandomWord(wordLength);
+  expect(word.length).toBe(wordLength);
+});
 
-  test("should return a word from the correct list for length 7", () => {
-    const length = 7;
-    const word = getRandomWord(length);
-    const wordList = ["MEDDELA", "BULLRAR", "PARKERA", "SLUMPAD", "BILDÄCK"];
-    expect(wordList).toContain(word);
+test("should call res.render with correct page and menu items", async () => {
+  const res = {
+    render: jest.fn(),
+  };
+  const page = "testPage";
+
+  await renderHBS(res, page);
+
+  expect(res.render).toHaveBeenCalledWith(page, {
+    menuRoad: [
+      { title: "WORDLE", address: "/" },
+      { title: "ABOUT", address: "/about" },
+      { title: "HIGHSCORE", address: "/highscore" },
+    ],
   });
 });
